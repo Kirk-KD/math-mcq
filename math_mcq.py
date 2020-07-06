@@ -3,13 +3,7 @@ from random import randint
 
 
 def get_math_str(op):
-    math_str = '{l} {o} {r}'.format(
-        l = randint(0, 30),
-        o = op,
-        r = randint(0, 30)
-    )
-
-    return math_str
+    return f'{randint(0, 30)} {op} {randint(0, 30)}'
 
 
 def ask_question(math_str):
@@ -48,14 +42,7 @@ def get_op():
     while choice not in '1 2 3 4 5'.split():
         choice = input('Your choice (1-5): ')
 
-    if choice == '1':
-        return '+'
-    elif choice == '2':
-        return '-'
-    elif choice == '3':
-        return '*'
-    elif choice == '4':
-        return '//'
+    return ['+', '-', '*', '//', ''][int(choice) - 1]
     
 
 total = correct = 0
